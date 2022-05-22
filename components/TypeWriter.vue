@@ -9,8 +9,21 @@ interface Props {
   time: number
   // 每个字的宽度，单位是 ch
   characterWidth: number
+  // 光标是否自动适配黑暗与亮色
+  colorAutoChange?: boolean
+  // 光标亮色模式的颜色
+  lightColor?: string
+  // 光标黑暗模式的颜色
+  darkColor?: string
+  // 如果不适配亮色与暗色，那么这个就是默认的颜色
+  defaultColor?: string
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  colorAutoChange: true,
+  lightColor: '#fff',
+  darkColor: '#000',
+  defaultColor: '#fff'
+})
 const characterWidthWithUnit = $computed(() => `${props.characterWidth}ch`)
 let currentIndex = $ref(0)
 // 为什么要给一个 landed，因为 Vue 存在 diff，这里为了不让 type-writer 被 diff，所以要全量更新
@@ -82,7 +95,7 @@ onMounted(() => {
 })
 
 const color = useColorMode()
-const $color = $computed(() => color.value === 'dark' ? '#fff' : '#000')
+const $color = $computed(() => props.colorAutoChange ? color.value === 'dark' ? props.lightColor : props.darkColor : props.defaultColor)
 </script>
 
 <template>
@@ -112,11 +125,10 @@ const $color = $computed(() => color.value === 'dark' ? '#fff' : '#000')
   content: '';
   display: inline-block;
   position: absolute;
-  width: 0.3rem;
-  height: 54px;
+  width: 2px;
+  height: 46px;
   line-height: 2rem;
   background-color: v-bind("$color");
-  border-radius: 2px;
   right: -10px;
 }
 

@@ -35,20 +35,44 @@ const friendLink = await $fetch('/api/friend-link')
 
     <div class="mt-36px">
       <h3 class="text-xl">
+        加入我们
+      </h3>
+
+      <div class="mt-16px opacity-70">
+        添加微信号 `Hongbusi16530`，了解更多。
+      </div>
+    </div>
+
+    <div class="mt-36px">
+      <h3 class="text-xl">
         快速入口
       </h3>
 
       <div class="flex justify-between flex-wrap mt-16px">
-        <a class="btn-primary mt-8px" href="https://github.com/developer-plus/weekly/issues" target="_blank">
+        <a class="btn-primary mt-8px" href="https://github.com/developer-plus/weekly/issues/new/choose" target="_blank">
           周刊投稿
         </a>
         <a class="btn-primary mt-8px" href="https://github.com/developer-plus/plans/issues/new?assignees=&labels=pr+welcome&template=create.yml&title=%E3%80%90TODO%E3%80%91" target="_blank">
           新增计划
         </a>
-        <a class="btn-primary mt-8px" href="https://github.com/developer-plus/developer-plus/issues/23" target="_blank">
-          加入我们
+        <a class="btn-primary mt-8px" href="https://github.com/developer-plus/developer-plus/issues" target="_blank">
+          勘误/建议
         </a>
       </div>
+    </div>
+
+    <div class="mt-36px">
+      <h3 class="text-xl">
+        每日一题
+      </h3>
+
+      <div class="mt-16px opacity-70">
+        Vue 实例挂载的过程中发生了什么?
+      </div>
+
+      <a class="btn-primary-small mt-16px" href="https://github.com/developer-plus/interview/issues/1" target="_blank">
+        前往答题
+      </a>
     </div>
 
     <div class="mt-36px">
